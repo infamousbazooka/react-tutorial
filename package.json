@@ -4,14 +4,21 @@
   "description": "A react project for learning",
   "main": "index.js",
   "scripts": {
-    "start": "httpster -d ./dist -p 3000"
+    "start": "./node_modules/.bin/webpack-dev-server"
   },
   "author": "Magnus Fernandes",
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.2",
     "babel-preset-latest": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1"
+    "babel-preset-stage-0": "^6.24.1",
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.7.1"
+  },
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
   }
 }

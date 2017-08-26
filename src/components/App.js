@@ -44,7 +44,8 @@ export class App extends Component{
                       backcountry={this.countDays("backcountry")}/> :
       (this.props.location.pathname === "/add-day") ?
         <AddDayForm /> :
-      <SkiDayList days={this.state.allSkiDays}/>
+      <SkiDayList days={this.state.allSkiDays}
+                  filter={this.props.params.filter}/>
     }
       </div>
     )

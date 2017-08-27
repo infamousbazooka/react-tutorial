@@ -1,40 +1,34 @@
 import { PropTypes, Component } from 'react'
 
-export class AddDayForm extends Component {
-  constructor(props){
-    super(props)
-    this.submit = this.submit.bind(this)
-  }
+export const AddDayForm = ({ resort, date, powder, backcountry }) => {
 
-  submit(e) {
+  let _resort, _date, _powder, _backcountry
+  const submit = (e) => {
     e.preventDefault()
-    console.log('resort', this.refs.resort.value)
-    console.log('date', this.refs.date.value)
-    console.log('powder', this.refs.powder.checked)
-    console.log('backcountry', this.refs.backcountry.checked)
+    console.log('resort', _resort.value)
+    console.log('date', _date.value)
+    console.log('powder', _powder.checked)
+    console.log('backcountry', _backcountry.checked)
   }
 
-  render() {
-    const { resort, date, powder, backcountry } = this.props
-    return (
-      <form onSubmit={this.submit} className="add-day-form">
-        <label htmlFor="resort">Resort Name</label>
-        <input type="text" id="resort" ref="resort" required defaultValue={resort} />
-        <br />
-        <label htmlFor="date">Date</label>
-        <input type="date" id="date" ref="date" required defaultValue={date} />
-        <div>
-          <label htmlFor="powder">Powder Day</label>
-          <input type="checkbox" id="powder" ref="powder" defaultChecked={powder} />
-        </div>
-        <div>
-          <label htmlFor="backcountry">Backcountry Day</label>
-          <input type="checkbox" id="backcountry" ref="backcountry" defaultChecked={backcountry} />
-        </div>
-        <button>Add Day</button>
-      </form>
-    )
-  }
+  return (
+    <form onSubmit={submit} className="add-day-form">
+      <label htmlFor="resort">Resort Name</label>
+      <input type="text" id="resort" ref={input => _resort = input} required defaultValue={resort} />
+      <br />
+      <label htmlFor="date">Date</label>
+      <input type="date" id="date" ref={input => _date = input} required defaultValue={date} />
+      <div>
+        <label htmlFor="powder">Powder Day</label>
+        <input type="checkbox" id="powder" ref={input => _powder = input} defaultChecked={powder} />
+      </div>
+      <div>
+        <label htmlFor="backcountry">Backcountry Day</label>
+        <input type="checkbox" id="backcountry" ref={input => _backcountry = input} defaultChecked={backcountry} />
+      </div>
+      <button>Add Day</button>
+    </form>
+  )
 }
 
 AddDayForm.defaultProps = {
